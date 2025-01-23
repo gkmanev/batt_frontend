@@ -6,6 +6,7 @@ services:
     build: .
     ports:
       - "8081:80"
+    restart: unless-stopped
 
   # Nginx service
   nginx:
