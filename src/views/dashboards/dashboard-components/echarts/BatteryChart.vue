@@ -76,6 +76,8 @@ import { mapState } from "vuex";
                       })
             const batt1Data = response.data.filter(obj => obj.devId === 'batt-0001');
             const batt2Data = response.data.filter(obj => obj.devId === 'batt-0002');
+            
+
             const lastValueBatt1 = batt1Data[batt1Data.length - 1].state_of_charge; // Last entry for batt-0001
             const lastValueBatt2 = batt2Data[batt2Data.length - 1].state_of_charge; // Last entry for batt-0002
             let momentSoCSum = lastValueBatt1 + lastValueBatt2;

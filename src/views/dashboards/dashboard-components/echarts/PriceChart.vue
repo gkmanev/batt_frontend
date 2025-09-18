@@ -451,9 +451,10 @@
         if (queryParam === 'today') {
             //this.configureChartForToday(); // Extract chart configuration to a method for better readability
 
-            const url1 = `http://85.14.6.37:16543/api/price/?start_date=${start}&end_date=${end}`;
+            const url1 = `http://85.14.6.37:16455/api/price/?timestamp=&start_date=${start}&end_date=${end}`;
             
-            const url2 = `http://85.14.6.37:16543/api/price/?start_date=${end}&end_date=${tomorrow}`;
+            const url2 = `http://85.14.6.37:16455/api/price/?timestamp=&start_date=${end}&end_date=${tomorrow}`;
+            
 
             const url3Forecast =  `http://85.14.6.37:16543/api/forecasted_price/?start_date=${start}&end_date=${end}`;
 

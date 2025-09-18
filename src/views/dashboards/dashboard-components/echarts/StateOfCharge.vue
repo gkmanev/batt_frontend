@@ -125,6 +125,7 @@
 
                         if (param.seriesName === 'SUM' || param.seriesName === 'SUM Day Ahead') {
                             sumValue = param.data[1]; // Capture the sum value
+                            
                             return;
                         }
                         if (param.seriesName === 'Batt1 Day Ahead')
