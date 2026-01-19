@@ -681,12 +681,10 @@
           });       
           
           data.forEach(el => {
-              let date = new Date(el.timestamp);
-              // Convert UTC time to local time (UTC+3 adjustment)  
-              date = new Date(date.getTime() - (2 * 60 * 60 * 1000));           
+              let date = new Date(el.timestamp);          
               let seriesIndex = devIdToSeriesIndex[el.devId];
               if (seriesIndex !== undefined) {
-                this.option.series[seriesIndex].data.push([date.toISOString(), el.state_of_charge]);                
+                this.option.series[seriesIndex].data.push([date.getTime(), el.state_of_charge]);                
               }            
           }); 
         }       
@@ -702,24 +700,23 @@
           tomorrow.setHours(1, 0, 0, 0); // Set the time to 01:00:00.000
 
           schedule.forEach(elSched =>{           
-          let date = new Date(elSched.timestamp);                         
-                date = new Date(date.getTime() - (2 * 60 * 60 * 1000));               
+          let date = new Date(elSched.timestamp);                          
                 if (elSched.devId === "batt-0001") {  
                     if (date >= currentDate && date <= tomorrow){
-                      this.option.series[2].data.push([date.toISOString(), elSched.soc]);                      
+                      this.option.series[2].data.push([date.getTime(), elSched.soc]);                      
                     }     
                     else if(date >= tomorrow){
-                      this.option.series[9].data.push([date.toISOString(), elSched.soc]);  
+                      this.option.series[9].data.push([date.getTime(), elSched.soc]);  
                     }                             
                 }       
                         
                 if (elSched.devId === "batt-0002") {
                   if (date >= currentDate && date <= tomorrow){
-                      this.option.series[3].data.push([date.toISOString(), elSched.soc]); 
+                      this.option.series[3].data.push([date.getTime(), elSched.soc]); 
                     }   
                   if( date >= tomorrow){
                     
-                    this.option.series[10].data.push([date.toISOString(), elSched.soc]); 
+                    this.option.series[10].data.push([date.getTime(), elSched.soc]); 
                   }              
                }
           })
@@ -730,9 +727,7 @@
       if (stackData){         
         stackData.forEach(el => {
               let date = new Date(el.timestamp);
-              // Convert UTC time to local time (UTC+3 adjustment)
-              date = new Date(date.getTime() - (2 * 60 * 60 * 1000));          
-              this.option.series[4].data.push([date.toISOString(), el.cumulative_soc]);
+              this.option.series[4].data.push([date.getTime(), el.cumulative_soc]);
             
           });          
       }
@@ -746,14 +741,12 @@
       if (stackData){         
         stackData.forEach(el => {
               let date = new Date(el.timestamp);
-              // Convert UTC time to local time (UTC+3 adjustment)
-              date = new Date(date.getTime() - (2 * 60 * 60 * 1000));  
               if (date >= currentDate && date <= tomorrow){        
-                this.option.series[7].data.push([date.toISOString(), el.cumulative_soc]);
-              //this.option.series[8].data.push([date.toISOString(), el.cumulative_soc]);
+                this.option.series[7].data.push([date.getTime(), el.cumulative_soc]);
+              //this.option.series[8].data.push([date.getTime(), el.cumulative_soc]);
               }
               else if(date >= tomorrow){
-                this.option.series[11].data.push([date.toISOString(), el.cumulative_soc]);
+                this.option.series[11].data.push([date.getTime(), el.cumulative_soc]);
                 if (hours >= 14){
                   this.option.series[9].areaStyle.opacity = 0.3
                   this.option.series[10].areaStyle.opacity = 0.3
