@@ -1,20 +1,8 @@
 import Vue from "vue";
 import Router from "vue-router";
-import axios from "axios";
 
 
 Vue.use(Router);
-
-// Route guard to check authentication
-const requireAuth = (to, from, next) => {
-  const token = localStorage.getItem('accessToken');
-  if (token) {
-    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-    next();
-  } else {
-    next({ name: 'FullLogin' }); // Redirect to login page
-  }
-};
 
 const router = new Router({
   mode: "history",
@@ -29,7 +17,6 @@ const router = new Router({
         {
           name: "Battery Fleet",
           path: '/dashboard/entra',
-          beforeEnter: requireAuth, // Apply route guard          
           component: () =>
             import(
               "@/views/dashboards/custom-dashboard/CustomDashboard"
@@ -38,7 +25,6 @@ const router = new Router({
         {
           name: "Asset Dashboard",
           path: '/dashboard/client',
-          beforeEnter: requireAuth, // Apply route guard          
           component: () =>
             import(
               "@/views/dashboards/client-dashboard/ClientDashboard"

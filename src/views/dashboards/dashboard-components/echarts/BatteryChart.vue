@@ -68,12 +68,7 @@ import { mapState } from "vuex";
         //let updateCurrentPath = this.lastRouteSegment()
         if (this.dateRange === "today") {
             if(this.lastRouteSegment() === 'entra'){
-            const response = await axios.get(
-                url, {
-                        headers: {
-                              'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
-                        }
-                      })
+            const response = await axios.get(url)
             const batt1Data = response.data.filter(obj => obj.devId === 'batt-0001');
             const batt2Data = response.data.filter(obj => obj.devId === 'batt-0002');
             
@@ -97,12 +92,7 @@ import { mapState } from "vuex";
         }
         if (this.lastRouteSegment() === 'client'){
             let url = `http://85.14.6.37:16543/api/state_of_charge/?date_range=${this.dateRange}&devId=${this.selectedDev}`;
-            const response = await axios.get(
-                url, {
-                        headers: {
-                              'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
-                        }
-                      })
+            const response = await axios.get(url)
             const lastValue = response.data[response.data.length - 1].state_of_charge;
             let batterySoC = lastValue.toFixed(1)
             this.batteryLevel = batterySoC

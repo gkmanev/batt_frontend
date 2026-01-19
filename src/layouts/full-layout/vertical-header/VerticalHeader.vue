@@ -367,13 +367,7 @@ export default {
   },
   methods: {
     logout() {
-      // Remove tokens from localStorage
-      localStorage.removeItem("accessToken");
-      localStorage.removeItem("refreshToken");
-
-      // Optionally redirect the user to the login page or another route
-      this.$router.push('/authentication/fulllogin');
-      
+      this.$router.push('/dashboard/entra');
     },
     showMobileSidebar() {
       this.$store.commit("SET_SIDEBAR_DRAWER", true);

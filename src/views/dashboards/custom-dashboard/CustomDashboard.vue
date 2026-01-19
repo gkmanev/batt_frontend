@@ -142,27 +142,10 @@ import RevenueChart from "../dashboard-components/echarts/RevenueChart.vue";
           try { 
                 
                   const [response, cumulativeResponse, scheduleResponse, cumulativeDamResponse] = await Promise.all([
-                      axios.get(url, {
-                          headers: {
-                              'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
-                          }
-                      }),
-                      axios.get(url_cumulative, {
-                          headers: {
-                              'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
-                          }
-                      }),
-                      axios.get(url_schedule, {
-                          headers: {
-                              'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
-                          }
-                      }),
-                      axios.get(url_cumulative_dam, {
-                          headers: {
-                              'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
-                          }
-                      }),
-                      
+                      axios.get(url),
+                      axios.get(url_cumulative),
+                      axios.get(url_schedule),
+                      axios.get(url_cumulative_dam),
                   ]);
                   
                   
@@ -186,17 +169,8 @@ import RevenueChart from "../dashboard-components/echarts/RevenueChart.vue";
 
                 
                 const [response, cumulativeResponse] = await Promise.all([
-                    axios.get(url, {
-                        headers: {
-                            'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
-                        }
-                    }),
-                    axios.get(url_cumulative, {
-                        headers: {
-                            'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
-                        }
-                    }),                    
-                    
+                    axios.get(url),
+                    axios.get(url_cumulative),
                 ]);               
                 
                 this.updateYearData = [response.data, cumulativeResponse.data]
@@ -219,17 +193,8 @@ import RevenueChart from "../dashboard-components/echarts/RevenueChart.vue";
           try { 
                 
                 const [response, cumulativeResponse] = await Promise.all([
-                    axios.get(url, {
-                        headers: {
-                            'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
-                        }
-                    }),
-                    axios.get(url_cumulative, {
-                        headers: {
-                            'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
-                        }
-                    }),                    
-                    
+                    axios.get(url),
+                    axios.get(url_cumulative),
                 ]);               
                 
                 this.updateMonthData = [response.data, cumulativeResponse.data]

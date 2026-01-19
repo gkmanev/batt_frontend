@@ -175,17 +175,8 @@
       
       try {            
                const [response, scheduleResponse] = await Promise.all([
-                   axios.get(url, {
-                       headers: {
-                           'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
-                       }
-                   }),                
-                   axios.get(url_schedule, {
-                       headers: {
-                           'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
-                       }
-                   }),                
-                   
+                   axios.get(url),
+                   axios.get(url_schedule),
                ]);
                
                
@@ -210,12 +201,7 @@
           try { 
                 
                 const [response] = await Promise.all([
-                    axios.get(url, {
-                        headers: {
-                            'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
-                        }
-                    }),         
-                    
+                    axios.get(url),
                 ]);               
                 
                 this.updateYearData = [response.data]
@@ -240,12 +226,7 @@
         
           try {                 
                 const [response] = await Promise.all([
-                    axios.get(url, {
-                        headers: {
-                            'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
-                        }
-                    }),         
-                    
+                    axios.get(url),
                 ]);               
                 
                 this.updateMonthData = [response.data]          
