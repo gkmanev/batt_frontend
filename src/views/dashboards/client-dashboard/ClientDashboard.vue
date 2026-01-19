@@ -51,11 +51,11 @@
             <PriceChart />
         </b-col>
     </b-row>    
-    <b-row>    
+    <!-- <b-row>    
         <b-col cols="12" v-if="isDevSelected" class="mt-3">
             <RevenueChart />
         </b-col>
-    </b-row>    
+    </b-row>     -->
         <!--
          <b-col cols="8">
             <LineChart />
@@ -94,7 +94,7 @@
   // import CustomProgress from "../dashboard-components/progress-cards/CustomProgress.vue";
   import { mapState } from 'vuex';
   import axios from "axios"
-  import RevenueChart from "../dashboard-components/echarts/RevenueChart.vue";
+  // import RevenueChart from "../dashboard-components/echarts/RevenueChart.vue";
 
 //   import SalesCard from "../dashboard-components/sales-card/SalesCard.vue";
 //   import WeatherChartClouds from "../dashboard-components/echarts/WeatherChartClouds.vue";
@@ -125,7 +125,7 @@
     DigiClock,
     BatteryChart,
     BatteryGauge,
-    RevenueChart
+    // RevenueChart
    // AwesomeCards,
    // WeatherChart,
    // CustomProgress,

@@ -37,9 +37,9 @@
         <b-col cols="12">
             <PriceChart />
         </b-col>
-        <b-col cols="12">
+        <!-- <b-col cols="12">
             <RevenueChart />
-        </b-col>
+        </b-col> -->
     </b-row>  
 
   </div>  
@@ -65,7 +65,7 @@
 import BatteryChart from "../dashboard-components/echarts/BatteryChart.vue";
 import BatteryGauge from "../dashboard-components/echarts/BatteryGauge.vue";
 import DigiClock from "../dashboard-components/echarts/DigiClock.vue";
-import RevenueChart from "../dashboard-components/echarts/RevenueChart.vue";
+// import RevenueChart from "../dashboard-components/echarts/RevenueChart.vue";
 
   //import HighChartTest from '../dashboard-components/echarts/HighChartTest.vue';
 
@@ -121,7 +121,7 @@ import RevenueChart from "../dashboard-components/echarts/RevenueChart.vue";
     BatteryChart,
     BatteryGauge,
     DigiClock,
-    RevenueChart
+    // RevenueChart
     //LineChart
     
 },
