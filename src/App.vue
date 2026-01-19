@@ -43,10 +43,6 @@ export default {
     
   },
   created (){
-    let token = localStorage.getItem('accessToken')    
-    if(!token){
-      this.$router.push('/authentication/fulllogin');
-    }
     this.createAllDevs()
     this.createConnection()
   },

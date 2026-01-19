@@ -154,7 +154,7 @@ export default {
 
     async login() {
       try {
-        const response = await axios.post(
+        await axios.post(
           "http://85.14.6.37:16543/api/token/",
           {
             username: this.form.username,            
@@ -167,12 +167,7 @@ export default {
           }
         );
         
-        // Store tokens in localStorage
-        localStorage.setItem("accessToken", response.data.access);
-        localStorage.setItem("refreshToken", response.data.refresh);
-        
-
-        // Redirect to a protected route
+        // Redirect to the dashboard after login
         this.$router.push({ name: "Battery Fleet" });
       } catch (error) {
         console.error("Login error:", error.response);

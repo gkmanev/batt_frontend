@@ -9,19 +9,10 @@ import App from "./App.vue";
 import VueFeather from "vue-feather";
 import InstantSearch from "vue-instantsearch";
 import VueGoogleHeatmap from 'vue-google-heatmap';
-import axios from 'axios';
 
 // i18n
 import i18n from './i18n/i18n.js'
 import "vue-hljs/dist/style.css";
-
-// Get token from localStorage
-const token = localStorage.getItem('accessToken');
-// If token exists, set default Authorization header
-if (token) {
-  axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-}
-
 
 Vue.use(VueFeather);
 
@@ -39,4 +30,3 @@ Vue.use(VueGoogleHeatmap, {
     apiKey: 'AIzaSyBOCx0egD3RtmVHKdj_xWTdz0nKiL3l9lw',libraries: ['visualization','places']
   });
 new Vue({ store, router,i18n, render: (h) => h(App) }).$mount("#app");
-

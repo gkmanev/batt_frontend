@@ -170,11 +170,7 @@
         if(this.lastRouteSegment() === 'entra'){
         let url_cumulative = `http://85.14.6.37:16543/api/state_of_charge/?date_range=today&cumulative=true`
         
-          const response = await axios.get(url_cumulative, {
-            headers: {
-              'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
-            }
-          });
+          const response = await axios.get(url_cumulative);
   
           let currentInvertorSum = response.data[response.data.length - 1].cumulative_invertor_power;          
           this.option.series[0].data[0].value = currentInvertorSum;
@@ -183,11 +179,7 @@
 
             let url = `http://85.14.6.37:16543/api/state_of_charge/?date_range=today&devId=${this.selectedDev}`
             
-            const response = await axios.get(url, {
-            headers: {
-              'Authorization': `Bearer ${localStorage.getItem('accessToken')}`              
-            }               
-          });
+            const response = await axios.get(url);
           let currentInvertor = response.data[response.data.length - 1].invertor_power;
           
           
