@@ -334,7 +334,7 @@ export default {
             areaStyle: {},  // Add `areaStyle` for a stacked area chart
             data: devData
               .filter((item) => item.devId === devId)
-              .map((item) => [item.timestamp, item.state_of_charge]),
+              .map((item) => [new Date(item.timestamp).getTime(), item.state_of_charge]),
           };
         });
 
