@@ -504,12 +504,12 @@ const router = new Router({
         {
           name: "BoxedLogin",
           path: "boxedlogin",
-          component: () => import("@/views/authentication/BoxedLogin"),
+          redirect: "/dashboard/entra",
         },
         {
           name: "FullLogin",
           path: "fulllogin",
-          component: () => import("@/views/authentication/FullLogin"),
+          redirect: "/dashboard/entra",
         },
         {
           name: "BoxedRegister",
